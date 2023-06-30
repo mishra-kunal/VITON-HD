@@ -1,5 +1,6 @@
 from flask import Flask, request, send_file, jsonify
 from flask_ngrok import run_with_ngrok
+from flask_cors import CORS
 from PIL import Image
 import base64
 import io
@@ -10,6 +11,7 @@ def make_dir():
 
 app = Flask(__name__)
 run_with_ngrok(app)
+CORS(app)
 
 @app.route("/")
 def home():
